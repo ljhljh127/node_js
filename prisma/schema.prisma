@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// 유저 테이블
+model UserTable {
+  UserID       String       @id
+  Password     String
+  Gender       String
+  Birthday     DateTime
+  PhoneNumber  String
+
+  BoardTable   BoardTable[]
+  RequirementsTable RequirementsTable[]
+}
+
+// 게시판 테이블
+model BoardTable {
+  PostID        Int      @id @default(autoincrement())
+  PostContent   String
+  UserID        String
+  UserTable     UserTable @relation(fields: [UserID], references: [UserID], onDelete: Cascade) 
+}
+
+// 졸업요건 테이블
+model RequirementsTable {
+  RequirementID Int      @id @default(autoincrement())
+  Language      String
+  TotalCredits  Int
+  UserID        String
+  UserTable     UserTable @relation(fields: [UserID], references: [UserID], onDelete: Cascade)
+}
