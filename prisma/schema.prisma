@@ -30,8 +30,8 @@ model BoardTable {
 // 졸업요건 테이블
 model RequirementsTable {
   RequirementID Int      @id @default(autoincrement())
-  Language      String
-  TotalCredits  Int
+  Language      Int      @default(0)
+  TotalCredits  Int      @default(0)
   UserID        String
   UserTable     UserTable @relation(fields: [UserID], references: [UserID], onDelete: Cascade)
 }
