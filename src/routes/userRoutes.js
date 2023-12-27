@@ -5,7 +5,7 @@ const router = express.Router();
 const userController = require('../controllers/userController');
 
 router.post('/signup',userController.signup);
-router.post('/login',);
+router.post('/login',userController.login);
 router.patch('/:userid',);
 router.delete(':/userid',);
 

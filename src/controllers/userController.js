@@ -12,7 +12,18 @@ signup = async (req,res,next) => {
     }
 };
 
-
+login = async (req,res,next) => {
+    try {
+        const newUser = await userService.login(req.body);
+        res.status(200).send({
+            message: '로그인 성공'
+        });
+    }
+    catch(error){
+        next(error); // 결국 에러핸들링 미들웨어로 넘기려고
+    }
+};
 module.exports = {
     signup,
+    login,
 }
