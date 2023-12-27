@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 //컨트롤러
-const userController = require('../controllers/userController')
+const userController = require('../controllers/userController');
 
 router.post('/signup',userController.signup);
 router.post('/login',);
-router.patch('/:userId',)
-router.delete(':/userId',)
+router.patch('/:userid',);
+router.delete(':/userid',);
 
 module.exports = router;
