@@ -17,9 +17,12 @@ const port = app.get('port');
 
 //라우터 등록
 const userRouter = require('./routes/userRoutes');
+const boardRouter = require('./routes/boardRouter')
+
 const errorHandler = require('../errorHandler');
 
 app.use('/users',userRouter);
+app.use('/boards',boardRouter);
 app.use(errorHandler)
 
 app.listen(port, function(){console.log("API 서버가 ",port,"번 포트에서 정상적으로 실행 중입니다.")});

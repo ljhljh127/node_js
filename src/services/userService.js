@@ -1,5 +1,5 @@
 const userModel = require('../models/userModel');
-const requirementModel = require('../models/requirementsModel')
+const requirementModel = require('../models/requirementsModel');
 const bcrypt = require('bcrypt');
 
 signup = async(reqUserData)=>{
@@ -46,7 +46,7 @@ login = async(loginData)=>{
         throw new Error('wrong password')
     }
     
-    //로그인시 토큰 발급하기
+    //로그인시 jwt 토큰 발급하기
 
      
 

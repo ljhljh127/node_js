@@ -2,7 +2,7 @@ const  userService = require('../services/userService');
 
 signup = async (req,res,next) => {
     try {
-        const newUser = await userService.signup(req.body);
+        await userService.signup(req.body);
         res.status(200).send({
             message: '회원가입이 완료되었습니다'
         });
@@ -14,7 +14,7 @@ signup = async (req,res,next) => {
 
 login = async (req,res,next) => {
     try {
-        const newUser = await userService.login(req.body);
+        await userService.login(req.body);
         res.status(200).send({
             message: '로그인 성공'
         });

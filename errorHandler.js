@@ -16,6 +16,10 @@ const errorHandler = (err, req, res, _) => {
             message: '비밀번호가 일치하지 않습니다.'
         })
     }
+
+    res.status(500).send({
+        message: '서버에 알수없는 에러가 발생하였습니다 관리자에게 문의하세요'
+    })
 };
 
 module.exports = errorHandler;

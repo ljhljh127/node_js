@@ -23,6 +23,7 @@ model UserTable {
 // 게시판 테이블
 model BoardTable {
   PostID        Int       @id @default(autoincrement())
+  PostTitle     String
   PostContent   String
   UserID        String
   UserTable     UserTable @relation(fields: [UserID], references: [UserID], onDelete: Cascade) 
