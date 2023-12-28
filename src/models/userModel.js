@@ -19,25 +19,26 @@ async function dbHandling(_func) {
     }
 }
 
-async function createUser(userData) {
+async function createUser(data) {
 
     return dbHandling(async(prisma) => {
         return await prisma.userTable.create({
-            data:userData
+            data:data
         });
 
     });
 }
 
-async function readUser(userData) {
+async function readUser(data) {
 
     return dbHandling(async (prisma) => {
         return await prisma.userTable.findUnique({
-            where: {UserID: userData.UserID}
+            where: {UserID: data.UserID}
         });
 
     });
 }
+
 
 async function updateUser(){
     return dbHandling(async(prisma) => {

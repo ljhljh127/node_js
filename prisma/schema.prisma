@@ -16,12 +16,13 @@ model UserTable {
   PhoneNumber  String
 
   BoardTable   BoardTable[]
-  RequirementsTable RequirementsTable[]
+  //? 를 빼고 싶은데 어떻게 해야할지 아직 잘 모르겠음
+  RequirementsTable RequirementsTable?
 }
 
 // 게시판 테이블
 model BoardTable {
-  PostID        Int      @id @default(autoincrement())
+  PostID        Int       @id @default(autoincrement())
   PostContent   String
   UserID        String
   UserTable     UserTable @relation(fields: [UserID], references: [UserID], onDelete: Cascade) 
@@ -29,9 +30,10 @@ model BoardTable {
 
 // 졸업요건 테이블
 model RequirementsTable {
-  RequirementID Int      @id @default(autoincrement())
-  Language      Int      @default(0)
-  TotalCredits  Int      @default(0)
-  UserID        String
+  RequirementID Int       @id @default(autoincrement())
+  Language      Int       @default(0)
+  TotalCredits  Int       @default(0)
+  //1:1 을 만족시키기위해 unique를 걸어주었음
+  UserID        String    @unique
   UserTable     UserTable @relation(fields: [UserID], references: [UserID], onDelete: Cascade)
 }
