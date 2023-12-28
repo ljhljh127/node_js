@@ -22,7 +22,7 @@ async function dbHandling(_func) {
 async function createUser(data) {
 
     return dbHandling(async(prisma) => {
-        return await prisma.userTable.create({
+        await prisma.userTable.create({
             data:data
         });
 

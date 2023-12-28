@@ -15,7 +15,7 @@ async function dbHandling(_func) {
 
 async function createPost(data) {
     return dbHandling(async(prisma) => {
-        return await prisma.boardTable.create({
+        await prisma.boardTable.create({
             data:data
         });
 

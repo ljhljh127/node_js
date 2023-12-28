@@ -17,7 +17,7 @@ async function dbHandling(_func) {
 async function createRequirements(data) {
 
     return dbHandling(async(prisma) => {
-        return await prisma.requirementsTable.create({
+        await prisma.requirementsTable.create({
             data:{
                 UserID: data
             }
